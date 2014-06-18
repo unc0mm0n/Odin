@@ -14,7 +14,8 @@ def stock_picker(*stocks)
   max_indexes
 end
 
-string = ARGV || "Enter integers seperated by commas!"
+# Too lazy to check valid input
+string = ARGV
 
 string.map! {|a| a.to_i}
 print stock_picker(*string)

@@ -8,8 +8,11 @@ def ceasarLetter(letter, value)
   temp[(temp.index(letter) + value) % temp.length]
 end
 
-string = ARGV[0] || "Enter a string!"
-value = ARGV[1].to_i || 0
+
+value = ARGV.shift.to_i || 0
+
+string = ''
+ARGV.each { |arg| string += "#{arg} " }
 
 code = []
 string.split('').each do |letter|
