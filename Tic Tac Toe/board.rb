@@ -1,6 +1,6 @@
 module TicTacToe
   class Board
-    attr_reader :board
+    attr_reader :board, :size
     def initialize(size)
       @board = create_empty_board(size)
       @size = size

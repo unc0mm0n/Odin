@@ -83,14 +83,47 @@ module TicTacToe
 
     def run()
       until @game_over
-        system "clear" or system "cls"
         turn()
       end
+    end
+
+    def to_s
+      print "Size: #{@board.size}, Win size: #{@win_size}, "
+      print "Players: #{players.map {|f| f.sym}.join(', ')}, Moves left: #{@moves_left}"
     end
   end
 
 
 end
 
-game = TicTacToe::Game.new(2, 5, {X: :h, Y: :h})
-game.run()
+puts "hey there bud!"
+play = true
+while play
+  print "What board size do you want to have? "
+  size = gets.chomp.to_i
+
+  print "And how many tiles in a row are needed to win? "
+  win_size = gets.chomp.to_i
+
+  puts "You are doing great!"
+  print "How many human players should we have today? "
+  players = Hash.new()
+  for i in (1..gets.chomp.to_i) do
+    print "Player #{i}'s symbol: "
+    players[gets.chomp.to_s] = :h
+  end
+
+  print "How many computer players should we have today? "
+  for i in (1..gets.chomp.to_i) do
+    print "Player #{i}'s symbol: "
+    puts "NOT YET IMPLEMENTED"
+  end
+
+  game = TicTacToe::Game.new(size, win_size, players)
+  puts "Your game is ready!"
+  puts game.to_s
+  game.run()
+
+  print "Do you want to play again?"
+  play = (gets.chomp =~ /^Ay/i)
+end
