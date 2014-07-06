@@ -48,14 +48,14 @@ module TicTacToe
 
         # check if move on board
         move.map! { |m| m - 1 }
-        unless board.valid?(move[1], move[0])
+        unless board.valid?(move[0], move[1])
           puts "Invalid square, not on board"
           next
         end
 
         # try and make the move on the board
         begin
-          score = board.set_cell(move[1], move[0], @players.first.sym)
+          score = board.set_cell(move[0], move[1], @players.first.sym)
         rescue ArgumentError => e
           puts e
           next
@@ -125,5 +125,5 @@ while play
   game.run()
 
   print "Do you want to play again?"
-  play = (gets.chomp =~ /^Ay/i)
+  play = (gets.chomp =~ /\Ay/i)
 end

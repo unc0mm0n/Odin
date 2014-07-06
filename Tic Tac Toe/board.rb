@@ -7,13 +7,21 @@ module TicTacToe
     end
 
     def print_board
+      print "     "
+      for i in (1..@size) do
+        print "  #{i}  "
+      end
+      puts
+      print "     "
       @size.times { print "-----" }
       puts
-      @board.each do |row|
+      @board.each_with_index do |row, index|
+        print "  #{index + 1}  "
         row.each do |c|
           print "| #{c} |"
         end
         puts
+        print "     "
         @size.times { print "-----" }
         puts
       end
