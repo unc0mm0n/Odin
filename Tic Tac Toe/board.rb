@@ -4,7 +4,6 @@ module TicTacToe
     def initialize(size)
       @board = create_empty_board(size)
       @size = size
-      p 'yo'
     end
 
     def print_board
@@ -99,14 +98,3 @@ module TicTacToe
     end
   end
 end
-
-board = TicTacToe::Board.new(3)
-board.print_board
-p board.set_cell(1, 1, :s)
-board.print_board
-p board.set_cell(1, 2, :s)
-board.print_board
-p board.set_cell(0, 0, :s)
-board.print_board
-p board.set_cell(2, 2, :s)
-board.print_board
